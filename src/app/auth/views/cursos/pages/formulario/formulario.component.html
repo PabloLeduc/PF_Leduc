@@ -1,0 +1,63 @@
+
+            <div class="container">
+
+                <form class="form" [formGroup]="formulario" (ngSubmit)="agregarCurso()">
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Nombre Curso</mat-label>
+                            <input matInput formControlName="nombreCurso">
+                            <small
+                                *ngIf="formulario.get('nombreCurso')?.errors?.['required'] && formulario.get('nombreCurso')?.touched"
+                                class="text-danger">Este campo es requerido</small>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Descripcion del Curso</mat-label>
+                            <input matInput formControlName="info">
+                            <small
+                                *ngIf="formulario.get('info')?.errors?.['required'] && formulario.get('info')?.touched"
+                                class="text-danger">Este campo es requerido</small>
+                        </mat-form-field>
+                    </div>
+                        <div>
+                            <mat-form-field>
+                                <mat-label>N° de Comision</mat-label>
+                                <input matInput formControlName="comision">
+                                <small
+                                    *ngIf="formulario.get('comision')?.errors?.['required'] && formulario.get('comision')?.touched"
+                                    class="text-danger">Este campo es requerido</small>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Profesor</mat-label>
+                                <input matInput formControlName="profesor">
+                                <small
+                                    *ngIf="formulario.get('profesor')?.errors?.['required'] && formulario.get('profesor')?.touched"
+                                    class="text-danger">Este campo es requerido</small>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <mat-label>Fecha Inicio</mat-label>
+                                <input matInput [matDatepicker]="fechaInicio" formControlName="inicio">
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle matSuffix [for]="fechaInicio"></mat-datepicker-toggle>
+                                <mat-datepicker #fechaInicio></mat-datepicker>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Fecha Fin</mat-label>
+                                <input matInput [matDatepicker]="fechaFin" formControlName="fin">
+                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                <mat-datepicker-toggle matSuffix [for]="fechaFin"></mat-datepicker-toggle>
+                                <mat-datepicker #fechaFin></mat-datepicker>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>image</mat-label>
+                                <input matInput formControlName="img">
+                            </mat-form-field>
+                        </div>
+                        
+                        <Div class="mb-2">
+                            <button type="submit" [disabled]="formulario.invalid" mat-raised-button color="primary">Agregar Curso </button>
+                        </Div>
+                        
+                </form>
+

@@ -1,0 +1,18 @@
+<mat-nav-list>
+    <mat-divider></mat-divider>
+    <h2 matSubheader class="mt-2">Menu</h2>
+
+    <a mat-list-item routerLink="/alumnos" routerLinkActive="list-item-active">
+        Alumnos</a>
+    <a mat-list-item routerLink="/alumnos/form" routerLinkActive="list-item-active" *ngIf="sesion.usuarioActivo?.admin">
+        Agregar Alumnos</a>
+    <a mat-list-item routerLink="/cursos" routerLinkActive="list-item-active">
+        Cursos</a>
+    <a mat-list-item routerLink="/cursos/form" routerLinkActive="list-item-active" *ngIf="sesion.usuarioActivo?.admin">
+        Agregar Cursos</a>
+    <a mat-list-item routerLink="/inscripciones" routerLinkActive="list-item-active">
+        Inscripcion</a>
+    <a mat-list-item routerLink="/inscripciones/form" routerLinkActive="list-item-active"
+        *ngIf="sesion.usuarioActivo?.admin">
+        Agregar Inscripcion</a>
+</mat-nav-list>
